@@ -1,7 +1,12 @@
 package com.google;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 public class VideoPlayer {
 
+  Map<String, VideoPlaylist> map = new HashMap<>();
   private final VideoLibrary videoLibrary;
 
   public VideoPlayer() {
@@ -13,7 +18,7 @@ public class VideoPlayer {
   }
 
   public void showAllVideos() {
-    System.out.println("showAllVideos needs implementation");
+    System.out.printf("%sHere's a list of all available videos:%n", videoLibrary.getVideos());
   }
 
   public void playVideo(String videoId) {
@@ -40,16 +45,27 @@ public class VideoPlayer {
     System.out.println("showPlaying needs implementation");
   }
 
-  public void createPlaylist(String playlistName) {
-    System.out.println("createPlaylist needs implementation");
+  public void createPlaylist(String playlistName)
+  {
+
+
+    map.put(playlistName, new VideoPlaylist());
+
+    System.out.println("Successfully created new playlist: "+playlistName);
+
   }
 
-  public void addVideoToPlaylist(String playlistName, String videoId) {
-    System.out.println("addVideoToPlaylist needs implementation");
+  public void addVideoToPlaylist(String playlistName, String videoId)
+  {
+    System.out.println("Added video to "+playlistName);
+
+
   }
 
   public void showAllPlaylists() {
-    System.out.println("showAllPlaylists needs implementation");
+    System.out.println("Showing playlists: "+map.keySet());
+
+
   }
 
   public void showPlaylist(String playlistName) {
@@ -87,4 +103,3 @@ public class VideoPlayer {
   public void allowVideo(String videoId) {
     System.out.println("allowVideo needs implementation");
   }
-}
